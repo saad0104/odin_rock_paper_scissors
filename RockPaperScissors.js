@@ -4,10 +4,12 @@ function roundNo() {
 }
 const totalRound = roundNo(); // round no call
 
+// random no selection between 1, 2, 3
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
+// Human choice input
 function getHumanChoice() {
   let humanChoice = prompt("Enter your Choice : (rock, paper, scissors) ");
   console.log("You - " + humanChoice.toUpperCase());
@@ -15,6 +17,7 @@ function getHumanChoice() {
   return humanChoice.toLowerCase();
 }
 
+// computer choice selection using random function
 function getComputerChoice() {
   let compChoice = getRandomInt(3);
   if (compChoice === 1) {
@@ -28,8 +31,11 @@ function getComputerChoice() {
     return "scissors";
   }
 }
+
 let humanScore = 0,
   compScore = 0;
+
+//   game logic
 function playRound() {
   const humanC = getHumanChoice();
   const compC = getComputerChoice();
