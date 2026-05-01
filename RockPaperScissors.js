@@ -110,6 +110,24 @@ choiceS.addEventListener("click", () => {
   playRound("scissors");
 });
 
+// button style
+const buttons = [choiceR, choiceP, choiceS];
+
+buttons.forEach((btn) => {
+  btn.style.padding = "15px 30px";
+  btn.style.fontSize = "18px";
+  btn.style.margin = "10px";
+  btn.style.borderRadius = "8px";
+  btn.style.cursor = "pointer";
+  btn.style.border = "2px solid #333";
+  btn.style.fontWeight = "bold";
+  btn.style.backgroundColor = "#f0f0f0";
+});
+
+choiceR.style.backgroundColor = "#e74c3c";
+choiceP.style.backgroundColor = "#3498db";
+choiceS.style.backgroundColor = "#f1c40f";
+
 // logic
 let humanScore = 0,
   compScore = 0;
@@ -148,10 +166,6 @@ function playRound(humanC) {
 // result show /scorecard
 const container = document.createElement("div");
 
-container.appendChild(choiceR);
-container.appendChild(choiceP);
-container.appendChild(choiceS);
-
 const scoreBoard = document.createElement("div");
 scoreBoard.style.margin = "2px";
 scoreBoard.style.padding = "10px";
@@ -159,6 +173,40 @@ scoreBoard.style.border = "2px solid black";
 
 const roundResult = document.createElement("p");
 const runningResult = document.createElement("p");
+
+// container style
+container.style.cssText = `
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+`;
+
+// scoreboard Styling
+scoreBoard.style.cssText = `
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 500px;
+  margin: 40px auto;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+  border: none;
+`;
+
+// typography
+roundResult.style.fontSize = "1.2rem";
+roundResult.style.marginBottom = "10px";
+runningResult.style.fontSize = "1.5rem";
+runningResult.style.fontWeight = "bold";
+runningResult.style.color = "#2ecc71";
+
+// mount
+
+container.appendChild(choiceR);
+container.appendChild(choiceP);
+container.appendChild(choiceS);
 
 scoreBoard.appendChild(roundResult);
 scoreBoard.appendChild(runningResult);
